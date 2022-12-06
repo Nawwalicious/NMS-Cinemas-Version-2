@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>NMS Cinemas</title>
+    <link rel="icon" type="image/x-icon" href="Title Icon/Logo Big.ico">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #222233;
+        }
+
+        h1 {
+            font-size: 300%;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 140;
+            line-height: 1.4;
+            text-align: center;
+            margin-top: 50px;
+            color: #ABCEFF;
+        }
+        
+        h5 
+        {
+            color: #ABCEFF;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 100px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .card {
+            position: relative;
+            margin: 15px 0;
+            width: 250px;
+            height: 300px;
+            background: #fff;
+            transform-style: preserve-3d;
+            transform: perspective(2000px);
+            transition: 1s;
+            box-shadow: inset 100px 0 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .card:hover {
+            z-index: 1111;
+            transform: perspective(2000px) rotate(-10deg);
+            box-shadow: inset 20px 0 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .card .img-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #000;
+            box-sizing: border-box;
+            transform-origin: left;
+            z-index: 1;
+            transition: 1s;
+        }
+
+        .card .img-container img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card:hover .img-container {
+            transform: rotateY(-135deg);
+        }
+
+        .card .card-details {
+            position: absolute;
+            left: 0;
+            top: 0;
+            box-sizing: border-box;
+            padding: 20px;
+            color: #000;
+        }
+
+        .card .card-details h2 {
+            margin: 0;
+            padding: 0.5em 0;
+            text-transform: uppercase;
+            font-size: 2em;
+            color: #ed363a;
+        }
+
+        .card .card-details p {
+            margin: 0;
+            padding: 0;
+            line-height: 25px;
+            font-size: 1.1em;
+        }
+
+        /* rating */
+
+        .checked {
+            color: orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="Homepage.html">NMS Cinemas</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="ComingSoon.html">Coming Soon</a></li>
+                <li class="active"><a href="#">Now Showing</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <h5>SignUp/Login Here to book Tickets</h5>
+                <li><a href="SignupLogin.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="SignupLogin.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <h1>
+        Movies Now Playing
+    </h1>
+
+
+
+    <div class="container">
+
+
+        <div class="card">
+            <div class="img-container">
+                <img src="Images/Heat/Heat 1 .jpeg" alt="" />
+            </div>
+            <div class="card-details">
+                <h2><button onclick="gobook('moviname1')" class="btn btn-outline-primary " data-toggle="modal"
+                        data-target="#exampleModal" value="Heat">BOOK NOW</button>
+                </h2>
+                <p>Heat (1995)
+                   Written and directed by Michael Mann.
+                </p>
+                <input type="hidden" id="moviname1" value="Heat" data-price="100">
+
+                <p class="mt-3 ml-3">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star "></span>
+                </p>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="img-container">
+                <img src="Images/Se7en/Se7en.jpg" alt="" />
+            </div>
+            <div class="card-details">
+                <h2><button onclick="gobook('moviname2')" class="btn btn-outline-primary" data-toggle="modal"
+                        data-target="#exampleModal" value="Se7en">BOOK NOW</button>
+                </h2>
+                <input type="hidden" id="moviname2" value="Se7en" data-price="100">
+                <p> Se7en (1995)
+                    Directed by David Fincher.</p>
+                <p class="mt-3 ml-3">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star "></span>
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-container">
+                <img src="Images/Mystic River/Mystic River 1 .jpg" alt="" />
+            </div>
+            <div class="card-details">
+                <h2><button onclick="gobook('moviname3')" class="btn btn-outline-primary" data-toggle="modal"
+                        data-target="#exampleModal" value="Mystic River">BOOK NOW</button>
+                </h2>
+                <p>Mystic River (2003)
+                    Written by Sean Penn and Directed by Clint Eastwood.
+                </p>
+                <input type="hidden" id="moviname3" value="Mystic River" data-price="100">
+
+                <p class="mt-3 ml-3">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star "></span>
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-container">
+                <img src="Images/The Devil's Advocate/The Devil's Advocate 1 .jpg" alt="" />
+            </div>
+            <div class="card-details">
+                <h2><button onclick="gobook('moviname4')" class="btn btn-outline-primary" data-toggle="modal"
+                        data-target="#exampleModal" value="Devils Advocate">BOOK NOW</button>
+                </h2>
+                <p>Devils Advocate (1997)
+                    Directed by Taylor Hackford.
+                </p>
+                <input type="hidden" id="moviname4" value="Devils Advocate" data-price="100">
+                <p class="mt-3 ml-3">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </p>
+            </div>
+        </div>
+
+
+
+        <div class="card">
+            <div class="img-container">
+                <img src="Images/Scent of a Woman/Scent of a Woman 1 .jpg" alt="" />
+            </div>
+            <div class="card-details">
+                <h2><button onclick="gobook('moviname1')" class="btn btn-outline-primary " data-toggle="modal"
+                        data-target="#exampleModal" value="Scent">BOOK NOW</button>
+                </h2>
+                <p>Scent of a Woman (1992)
+                   Directed by Martin Brest
+                </p>
+                <input type="hidden" id="moviname1" value="Scent" data-price="100">
+
+                <p class="mt-3 ml-3">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star "></span>
+                </p>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="img-container">
+                <img src="Images/Collateral/Collateral 1 .jpeg" alt="" />
+            </div>
+            <div class="card-details">
+                <h2><button onclick="gobook('moviname2')" class="btn btn-outline-primary" data-toggle="modal"
+                        data-target="#exampleModal" value="Collateral">BOOK
+                        NOW</button>
+                </h2>
+                <input type="hidden" id="moviname2" value="Collateral" data-price="100">
+                <p>Collateral (2004)
+                    Directed by Michael Mann
+                </p>
+                <p class="mt-3 ml-3">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star "></span>
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-container">
+                <img src="Images/Curious Case Of Benjamin Button/Curious Case Of Benjamin Button 1 .jpg" alt="" />
+            </div>
+            <div class="card-details">
+                <h2><button onclick="gobook('moviname3')" class="btn btn-outline-primary" data-toggle="modal"
+                        data-target="#exampleModal" value="Benjamin">BOOK NOW</button>
+                </h2>
+                <p>Curious case of Benjamin Button (2008)</p>
+                <input type="hidden" id="moviname3" value="Benjamin" data-price="100">
+
+                <p class="mt-3 ml-3">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star "></span>
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-container">
+                <img src="Images/Jerry Maguire/Jerry Maguire 1 .jpg" alt="" />
+            </div>
+            <div class="card-details">
+                <h2><button onclick="gobook('moviname4')" class="btn btn-outline-primary" data-toggle="modal"
+                        data-target="#exampleModal" value="Jerry Maguire">BOOK NOW</button>
+                </h2>
+                <p>Jerry Maguire</p>
+                <input type="hidden" id="moviname4" value="Jerry Maguire" data-price="100">
+                <p class="mt-3 ml-3">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </p>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="img-container">
+                <img src="Images/Motherless Brooklyn/Motherless Brooklyn 1 .jpg" alt="" />
+            </div>
+            <div class="card-details">
+                <h2><button onclick="gobook('moviname5')" class="btn btn-outline-primary" data-toggle="modal"
+                        data-target="#exampleModal" value="Motherless">BOOK NOW</button>
+                </h2>
+                <p>Motherless Brooklyn (2019)</p>
+                <input type="hidden" id="moviname5" value="Motherless" data-price="100">
+                <p class="mt-3 ml-3">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-container">
+                <img src="Images/Interview With The Vampire/Interview With The Vampire 1 .jpg" alt="" />
+            </div>
+            <div class="card-details">
+                <h2><button onclick="gobook('moviname6')" class="btn btn-outline-primary" data-toggle="modal"
+                        data-target="#exampleModal" value="Interview">BOOK NOW</button>
+                </h2>
+                <p>Interview with the Vampire (1994)</p>
+                <input type="hidden" id="moviname6" value="Interview" data-price="100">
+                <p class="mt-3 ml-3">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                </p>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="img-container">
+                <img src="Images/The Last Samurai/The Last Samurai 1.jpg" alt="" />
+            </div>
+            <div class="card-details">
+                <h2><button onclick="gobook('moviname7')" data-toggle="modal" data-target="#exampleModal"
+                        class="btn btn-outline-primary" value="Samurai">BOOK NOW</button>
+                </h2>
+                <p>The last Samurai (2003)</p>
+                <input type="hidden" id="moviname7" value="Samurai" data-price="100">
+                <p class="mt-3 ml-3">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-container">
+                <img src="Images/Your Name/Your Name 1.png" alt="" />
+            </div>
+            <div class="card-details">
+                <h2><button onclick="gobook('moviname7')" data-toggle="modal" data-target="#exampleModal"
+                        class="btn btn-outline-primary" value="Your Name">BOOK NOW</button>
+                </h2>
+                <p>Your Name (2016)</p>
+                <input type="hidden" id="moviname7" value="Your Name" data-price="100">
+                <p class="mt-3 ml-3">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </p>
+            </div>
+        </div>
+
+
+
+        <div class="card">
+            <div class="img-container">
+                <img src="Images/Constantine/Constantine 1 .jpeg" alt="" />
+            </div>
+            <div class="card-details">
+                <h2><button onclick="gobook('moviname7')" data-toggle="modal" data-target="#exampleModal"
+                        class="btn btn-outline-primary" value="Constantine">BOOK NOW</button>
+                </h2>
+                <p>Constantine (2005)</p>
+                <input type="hidden" id="moviname7" value="Constantine" data-price="100">
+                <p class="mt-3 ml-3">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </p>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="img-container">
+                <img src="Images/The Game/The Game 1.jpeg" alt="" />
+            </div>
+            <div class="card-details">
+                <h2><button onclick="gobook('moviname7')" data-toggle="modal" data-target="#exampleModal"
+                        class="btn btn-outline-primary" value="Game">BOOK NOW</button>
+                </h2>
+                <p>The Game (1998)</p>
+                <input type="hidden" id="moviname7" value="Game" data-price="100">
+                <p class="mt-3 ml-3">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </p>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="img-container">
+                <img src="Images/Rango/Rango 1.jpeg" alt="" />
+            </div>
+            <div class="card-details">
+                <h2><button onclick="gobook('moviname7')" data-toggle="modal" data-target="#exampleModal"
+                        class="btn btn-outline-primary" value="Rango">BOOK NOW</button>
+                </h2>
+                <p>Rango (2006)</p>
+                <input type="hidden" id="moviname7" value="Rango" data-price="100">
+                <p class="mt-3 ml-3">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </p>
+            </div>
+        </div>
+
+
+
+        <div class="card">
+            <div class="img-container">
+                <img src="Images/Donnie Brasco/Donnie Brasco 1.jpg" alt="" />
+            </div>
+            <div class="card-details">
+                <h2><button onclick="gobook('moviname7')" data-toggle="modal" data-target="#exampleModal"
+                        class="btn btn-outline-primary" value="Donnie">BOOK NOW</button>
+                </h2>
+                <p>Donnie Brasco (1992)</p>
+                <input type="hidden" id="moviname7" value="Donnie" data-price="100">
+                <p class="mt-3 ml-3">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </p>
+            </div>
+        </div>
+
+
+
+        </div>
+
+        <div id="modeout">
+
+        </div>
+
+
+
+    </div>
+
+    <!-- '''''''''''''''' -->
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+    <script>
+
+
+    function gobook(moviname) {
+        var loginuserid = JSON.parse(localStorage.getItem("login"));
+        // console.log(loginuserid);
+        var arrmovi = []
+
+
+        if ((loginuserid == null) || (loginuserid == undefined)) {
+            console.log("not going to book");
+            document.getElementById("modeout").innerHTML = `<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">You Not Sign Up or Sign In</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                Please Sign Up || Sign In and then Book Seat...
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <a href="user.html"><button type="button" class="btn btn-primary">GoTo SignUp</button></a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>`;
+
+
+
+
+        } else {
+
+            var seatprice = document.getElementById(moviname).dataset.price;
+
+            var moviname = document.getElementById(moviname).value;
+            // console.log(loginuserid);
+
+            console.log(moviname);
+            console.log(seatprice);
+
+
+            var object = {
+                moviname: moviname,
+                price: seatprice
+
+            }
+
+            arrmovi.push(object);
+
+            localStorage.setItem("moviedata", JSON.stringify(arrmovi));
+            window.location = "BookNow.html";
+            console.log("book seat");
+        }
+
+    }
+        // gobook();
+    </script>
+
+
+
+</body>
+
+</html>
